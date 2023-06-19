@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+              <div class="heading">Array of object</div>
+    <div class="container">
+
+        <pre>
+Question  "let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] "
+        </pre>
+
+
+        <h1>1."We are interested in retrieving only the students' names; all the names should be in caps.
+
+       ['JOHN', 'BABA', 'YAGA', 'WICK']".</h1>
+        <pre>
+            studentRecords.filter((item)=>{
+              
+                console.log(item.name)
+            })
+        </pre>
+        <h2>Ans=>here we use filter function to get value of key "name" </h2>
+    </div>
+
+
+    <div class="container">
+        <h1>2."Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+            [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"</h1>
+        <pre>
+            studentRecords.filter((item)=>{
+              
+                if(item.marks>50){
+                    console.log(item)
+                }
+              })
+        </pre>
+        <h2>Ans=>here we use filter function to get array of object having "marks" more than 50 </h2>
+    </div>
+
+    <div class="container">
+        <h1>3.Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h1>
+        <pre>
+            studentRecords.filter((item)=>{
+              
+                if(item.id>120 && item.marks>50){
+                    console.log(item)
+                }
+              })
+        </pre>
+    </div>
+
+    <div class="container">
+        <h1>4.Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</h1>
+        <pre>
+            console.log(studentRecords.reduce((sum, k) => sum + k.marks, 0));
+        </pre>
+
+    </div>
+    <div class="container">
+        <h1>5. This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.</h1>
+        <pre>
+            console.log(studentRecords.filter((i) => i.marks > 50).map((i) => i.name));
+        </pre>
+
+    </div>
+    <div class="container">
+        <h1>6. This time we are required to print the sum of marks of the students with id > 120.</h1>
+        <pre>
+            console.log(
+	studentRecords.filter((i) => i.id > 120).reduce((sum, i) => sum + i.marks, 0)
+);
+        </pre>
+
+    </div>
+    <div class="container">
+        <h1>7. This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.</h1>
+        <pre>
+            result = studentRecords
+            .filter((i) => i.marks < 50)
+            .map((i) => i.marks + 15)
+            .filter((i) => i > 50)
+            .reduce((sum, i) => sum + i, 0);
+        console.log(
+            studentRecords
+                .filter((i) => i.marks > 50)
+                .reduce((sum, i) => sum + i.marks, result)
+        );
+        </pre>
+
+    </div>
+    <div class="container">
+        <h1>8. Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects.</h1>
+        <pre>
+            const obj1 = { name: 'Anu', class: 4, rollNo: 1 };
+            const obj2 = { name: 'Anusha', class: 4, rollNo: 2 };
+            let resultArr = [{ ...obj1 }, { ...obj2 }];
+            console.log(resultArr);
+            
+            
+            
+            //method 2
+            let studentDetails = [
+                { name: 'Anu', class: 4, rollNo: 1 },
+                { name: 'Anusha', class: 4, rollNo: 2 },
+            ];
+            console.log(studentDetails);
+        </pre>
+
+    </div>
+
+    
+</body>
+</html>
